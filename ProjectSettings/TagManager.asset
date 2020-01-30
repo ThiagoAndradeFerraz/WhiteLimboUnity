@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Controle Inventario
   - Btn
+  - btn_dialogo
+  - controle_dialogo
   layers:
   - Default
   - TransparentFX

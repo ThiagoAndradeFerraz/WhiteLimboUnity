@@ -33,7 +33,7 @@ public class Controle_Player : MonoBehaviour
         float x = Input.GetAxis("Horizontal") * Time.deltaTime * velocidade;
         float y = Input.GetAxis("Vertical") * Time.deltaTime * velocidade;
 
-        transform.Translate(x, y, 0);
+        transform.Translate(x, 0, y);
     }
 
     public void UsarInventario()

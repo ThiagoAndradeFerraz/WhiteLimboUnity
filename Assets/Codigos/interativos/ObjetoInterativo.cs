@@ -12,13 +12,17 @@ public abstract class ObjetoInterativo : InterativoGenerico
 
     public bool pegavel;
 
-    public GameObject controleInventario;
+    public GameObject controleInventario, controleDialogo;
 
     public Sprite imgInventario;
+
+    public string[] strAcoes = new string[1]; // Textos de ações possiveis ao se aproximar
+                                              // 0 -> Botão E, 1 -> Botão R
 
     public void Awake()
     {
         controleInventario = GameObject.FindGameObjectWithTag("Controle Inventario");
+        controleDialogo = GameObject.FindGameObjectWithTag("controle_dialogo");
     }
 
 
@@ -28,7 +32,7 @@ public abstract class ObjetoInterativo : InterativoGenerico
         DetectarPLayer();
         if (estaProximo == true && estadoAnterior == false)
         {
-            textoUI.text = "[E] Ver " + nomeObj + "\n" + "[R] Pegar " + nomeObj;
+            textoUI.text = "[E] " + strAcoes[0] + " " + nomeObj + "\n" + "[R] " + strAcoes[1] + " " + nomeObj;
         }
         else if(estaProximo == false && estadoAnterior == true) {
             textoUI.text = " ";
@@ -41,6 +45,15 @@ public abstract class ObjetoInterativo : InterativoGenerico
         {
             player.GetComponent<Controle_Player>().botoesInventario.SetActive(true);
             player.GetComponent<Controle_Player>().visivelBtn = true;
+        }
+    }
+
+    protected void FecharInventario()
+    {
+        if (player.GetComponent<Controle_Player>().visivelBtn == true)
+        {
+            player.GetComponent<Controle_Player>().botoesInventario.SetActive(false);
+            player.GetComponent<Controle_Player>().visivelBtn = false;
         }
     }
 

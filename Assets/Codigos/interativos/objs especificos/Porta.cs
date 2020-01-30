@@ -25,8 +25,12 @@ public class Porta : ObjetoInterativo
         {
             Debug.Log("Abri a porta");
 
+
+            FecharInventario();
+
             // Removendo o item usado
             controleInventario.GetComponent<ControleInventario>().RemoverItem(objetoEsperado);
+
         }
         else
         {

@@ -9,7 +9,7 @@ public abstract class InterativoGenerico : MonoBehaviour
     (objetos, npcs, etc...) */
 
     public Transform player;
-    protected float distanciaMinima = 2.0f;
+    protected float distanciaMinima = 3.0f;
     protected bool estaProximo = false; // Indica se o player esta proximo ou não
     protected bool estadoAnterior = false; // Serve para evitar constantes repetições sem necessidade
 
@@ -18,7 +18,7 @@ public abstract class InterativoGenerico : MonoBehaviour
     // Método dedicado a detectar a proximidade do jogador
     protected void DetectarPLayer()
     {
-        if (Vector2.Distance(this.transform.position, player.position) < distanciaMinima){
+        if (Vector3.Distance(this.transform.position, player.position) < distanciaMinima){
             estadoAnterior = estaProximo;
             estaProximo = true;
             // Debug.Log("esta perto");

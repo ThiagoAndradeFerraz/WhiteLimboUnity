@@ -21,7 +21,7 @@ public class Chave : ObjetoInterativo
         }
     }
 
-    // IGNORAR PARA ESSA CLASE
+    // IGNORAR PARA ESSE MÉTODO
     public override void Interacao2(bool resultado)
     {
         
