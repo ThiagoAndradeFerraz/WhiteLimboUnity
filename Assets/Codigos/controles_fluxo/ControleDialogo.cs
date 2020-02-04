@@ -12,21 +12,23 @@ public class ControleDialogo : MonoBehaviour
 
     public int tamanho, contador = 0;
 
-    // Botão de iteração do texto
-    public GameObject btnProx;
+    // Objeto pai na hierarquia de UI relacionada a operações de dialogo
+    public GameObject paiDialogo;
+
+    // Objetos de texto onde as informações serão exibidas
+    public Text nomePersonagem;
+    public Text fala;
 
     // Espaço onde será recebida as falas da conversa a ser exibida
-    public List<string> conversa;
+    public List<ObjDialogo> conversa;
 
 
     public void Awake()
     {
         // Desativando o botão de iteração de texto
-        btnProx.SetActive(false);
+        LigarUI(false);
         conversa = null;
     }
-
-
 
     public void Update()
     {
@@ -39,7 +41,6 @@ public class ControleDialogo : MonoBehaviour
             }*/
 
             
-
             IniciarConversa();
         }
         else
@@ -48,7 +49,7 @@ public class ControleDialogo : MonoBehaviour
             if (estadoAnterior == !conversando)
             {
                 // Reiniciando as configurações
-                btnProx.SetActive(false);
+                LigarUI(false);
                 conversa = null;
                 contador = 0;
                 tamanho = 0;
@@ -58,7 +59,7 @@ public class ControleDialogo : MonoBehaviour
 
 
     // Método para ser chamado externamente e obter o texto da conversa
-    public void ConfigurarTexto(List<string> texto)
+    public void ConfigurarTexto(List<ObjDialogo> texto)
     {
         conversa = texto;
     }
@@ -67,7 +68,7 @@ public class ControleDialogo : MonoBehaviour
     public void IniciarConversa()
     {
         tamanho = conversa.Count;
-        btnProx.SetActive(true);
+        LigarUI(true);
 
         if(pdIterarAutomaticamente == true)
         {
@@ -83,7 +84,11 @@ public class ControleDialogo : MonoBehaviour
         {
             // Exibição normal dos dados de cada linha
 
-            Debug.Log(conversa[contador]);
+            //Debug.Log(conversa[contador].getNome() + ": " + conversa[contador].getFala());
+
+            nomePersonagem.text = conversa[contador].getNome();
+            fala.text = conversa[contador].getFala();
+            
             contador++;
         }
         else
@@ -96,5 +101,14 @@ public class ControleDialogo : MonoBehaviour
             Debug.Log(" ");
         }
 
+    }
+
+    // Método dedicado a ligar / desligar a UI relacionada as operações de dialogo
+    public void LigarUI(bool comando)
+    {
+        /*btnProx.SetActive(comando);
+        painel.SetActive(comando);*/
+
+        paiDialogo.SetActive(comando);
     }
 }

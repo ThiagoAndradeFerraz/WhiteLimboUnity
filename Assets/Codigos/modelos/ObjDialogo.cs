@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjDialogo : MonoBehaviour
+public class ObjDialogo 
 {
     // =================================================
     // Classe modelo dedicada a definir caracteristicas 
