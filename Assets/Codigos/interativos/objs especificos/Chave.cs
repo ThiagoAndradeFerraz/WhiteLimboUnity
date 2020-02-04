@@ -14,8 +14,10 @@ public class Chave : ObjetoInterativo
         // Adicionando objeto a lista de inventario na memória
         controleInventario.GetComponent<ControleInventario>().AdicionarItem(idObj, nomeObj, desc, imgInventario);
 
-        if(controleInventario.GetComponent<ControleInventario>().adicionou == true)
+        
+        if (controleInventario.GetComponent<ControleInventario>().adicionou == true)
         {
+            
             Destroy(this.gameObject);
             controleInventario.GetComponent<ControleInventario>().adicionou = false; // Reiniciando variavel
         }

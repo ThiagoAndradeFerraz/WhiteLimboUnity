@@ -38,6 +38,7 @@ public class ControleInventario : MonoBehaviour
                 botoes[i].GetComponent<BtnInventario>().usado = true; // Marcando slot como usado
                 botoes[i].GetComponent<BtnInventario>().idObjeto = id;
 
+
                 adicionou = true; // Indicando que o processo foi concluido com sucesso
 
                 // Debug.Log("Slot usado: " + i);

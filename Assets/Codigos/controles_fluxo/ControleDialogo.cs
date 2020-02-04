@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class ControleDialogo : MonoBehaviour
 {
     public bool conversando = false;
-    public bool estadoAnterior = false;
+    public bool estadoAnterior = true;
+
+    public bool pdIterarAutomaticamente = true;
 
     public int tamanho, contador = 0;
 
@@ -28,12 +30,15 @@ public class ControleDialogo : MonoBehaviour
 
     public void Update()
     {
-        if(conversando == true)
+        if (conversando == true)
         {
-            if(estadoAnterior == conversando)
+            /*
+            if (estadoAnterior == conversando)
             {
                 estadoAnterior = !conversando;
-            }
+            }*/
+
+            
 
             IniciarConversa();
         }
@@ -64,24 +69,32 @@ public class ControleDialogo : MonoBehaviour
         tamanho = conversa.Count;
         btnProx.SetActive(true);
 
+        if(pdIterarAutomaticamente == true)
+        {
+            IterarConversa();
+            pdIterarAutomaticamente = false;
+        }
     }
 
     // Método usado pelo clique do botão de dialogo
     public void IterarConversa()
     {
-        if(contador < tamanho)
+        if (contador < tamanho) 
         {
+            // Exibição normal dos dados de cada linha
+
             Debug.Log(conversa[contador]);
             contador++;
         }
         else
         {
+            // Tratando quando é chegado no fim da leitura
+
+            pdIterarAutomaticamente = true;
             conversando = false;
             estadoAnterior = !conversando;
             Debug.Log(" ");
         }
 
     }
-
-
 }
