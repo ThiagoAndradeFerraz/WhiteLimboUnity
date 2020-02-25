@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Codigos\TesteTroca.cs" />
     <Compile Include="Assets\Codigos\controles_fluxo\ControleDialogo.cs" />
     <Compile Include="Assets\Codigos\controles_fluxo\ControleInventario.cs" />
     <Compile Include="Assets\Codigos\interativos\BtnInventario.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Assets\Codigos\interativos\objs especificos\Porta.cs" />
     <Compile Include="Assets\Codigos\modelos\ObjDialogo.cs" />
     <Compile Include="Assets\Codigos\modelos\ObjInventario.cs" />
+    <Compile Include="Assets\Codigos\modelos\ObjRostos.cs" />
     <Compile Include="Assets\Codigos\player\Controle_Player.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/thiag/Documents/White_Limbo/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

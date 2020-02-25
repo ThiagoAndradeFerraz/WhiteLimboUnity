@@ -5,6 +5,22 @@ using UnityEngine.UI;
 
 public class ControleDialogo : MonoBehaviour
 {
+    // Lista que guarda os objetos de imagem (populado pelo Inspector)
+    public List<GameObject> atores = new List<GameObject>();
+
+
+    // TALVEZ NÃO PRECISE USAR O ABAIXO!
+    // Lista que guarda os rostos a serem exibidos pelos atores
+    //public List<ObjRostos> rostos = new List<ObjRostos>();
+
+
+    
+    private Sprite spriteMestreEsquerda;
+    private Sprite spriteMestreDireita;
+
+
+
+
     public bool conversando = false;
     public bool estadoAnterior = true;
 
@@ -28,7 +44,11 @@ public class ControleDialogo : MonoBehaviour
         // Desativando o botão de iteração de texto
         LigarUI(false);
         conversa = null;
+
+        
+
     }
+
 
     public void Update()
     {
@@ -80,6 +100,7 @@ public class ControleDialogo : MonoBehaviour
     // Método usado pelo clique do botão de dialogo
     public void IterarConversa()
     {
+        
         if (contador < tamanho) 
         {
             // Exibição normal dos dados de cada linha
@@ -88,7 +109,30 @@ public class ControleDialogo : MonoBehaviour
 
             nomePersonagem.text = conversa[contador].getNome();
             fala.text = conversa[contador].getFala();
-            
+
+            spriteMestreEsquerda = Resources.Load<Sprite>(conversa[contador].getRostoEsq()); // Srite do rosto esquerdo
+            spriteMestreDireita = Resources.Load<Sprite>(conversa[contador].getRostoDireita()); // Sprite do rosto direito
+
+            atores[1].GetComponent<SpriteRenderer>().sprite = spriteMestreEsquerda;
+            atores[2].GetComponent<SpriteRenderer>().sprite = spriteMestreDireita;
+
+
+
+            // ====
+            // plano: de acordo com o que estiver no arquivo, pegar a imagem da lista de imagens
+            // ====
+
+            // TESTE - APAGAR DPS!!!!
+            //atores[0].sprite = Resources.Load<Sprite>("Assets/Texturas/Placeholders/Rostos/NEUTRO-2.png");
+            // TESTE - APAGAR DEPOIS!!!!!
+
+            //atores[1].GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("NEUTRO-1");
+
+
+
+
+
+
             contador++;
         }
         else
@@ -106,9 +150,18 @@ public class ControleDialogo : MonoBehaviour
     // Método dedicado a ligar / desligar a UI relacionada as operações de dialogo
     public void LigarUI(bool comando)
     {
-        /*btnProx.SetActive(comando);
-        painel.SetActive(comando);*/
-
+        
         paiDialogo.SetActive(comando);
+
+        // Objetos de imagem dos atores
+        // atores[0].gameObject.SetActive(comando); -> FUNDO A SER MUDADO É O FUNDO DO CENARIO
+        atores[1].gameObject.SetActive(comando);
+        atores[2].gameObject.SetActive(comando);
+
+        
+
+
+
+
     }
 }

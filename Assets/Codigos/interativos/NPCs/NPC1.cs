@@ -76,8 +76,8 @@ public class NPC1 : ObjetoInterativo
         // FALA 1
         ObjDialogo fala1 = new ObjDialogo();
         fala1.setDirFundo(" ");
-        fala1.setDirRosto1(" ");
-        fala1.setDirRosto2(" ");
+        fala1.setRostoEsq("FELIZ-1");
+        fala1.setRostoDireta("NEUTRO-2");
         fala1.setFala("olá visitante");
         fala1.setNome("michel");
         fala1.setTipo(0);
@@ -86,9 +86,9 @@ public class NPC1 : ObjetoInterativo
 
         // FALA 2
         ObjDialogo fala2 = new ObjDialogo();
-        fala2.setDirFundo(" ");
-        fala2.setDirRosto1(" ");
-        fala2.setDirRosto2(" ");
+        fala2.setDirFundo("");
+        fala2.setRostoEsq("NEUTRO-1");
+        fala2.setRostoDireta("FELIZ-2");
         fala2.setFala("como posso sair daqui?");
         fala2.setNome("jogador");
         fala2.setTipo(0);
@@ -98,8 +98,8 @@ public class NPC1 : ObjetoInterativo
         // FALA 3
         ObjDialogo fala3 = new ObjDialogo();
         fala3.setDirFundo(" ");
-        fala3.setDirRosto1(" ");
-        fala3.setDirRosto2(" ");
+        fala3.setRostoEsq("FELIZ-1");
+        fala3.setRostoDireta("FELIZ-2");
         fala3.setFala("pegue a chave e destranque a porta!");
         fala3.setNome("michel");
         fala3.setTipo(0);

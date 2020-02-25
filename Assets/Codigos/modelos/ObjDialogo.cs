@@ -49,12 +49,12 @@ public class ObjDialogo
     // ------------------------------------
 
     // DIRETÓRIO ROSTO 1
-    public string getDirRosto1()
+    public string getRostoEsq()
     {
         return dirRosto1;
     }
 
-    public void setDirRosto1(string diretorio)
+    public void setRostoEsq(string diretorio)
     {
         dirRosto1 = diretorio;
     }
@@ -62,12 +62,12 @@ public class ObjDialogo
     // ------------------------------------
 
     // DIRETÓRIO ROSTO 2
-    public string getDirRosto2()
+    public string getRostoDireita()
     {
         return dirRosto2;
     }
 
-    public void setDirRosto2(string diretorio)
+    public void setRostoDireta(string diretorio)
     {
         dirRosto2 = diretorio;
     }
