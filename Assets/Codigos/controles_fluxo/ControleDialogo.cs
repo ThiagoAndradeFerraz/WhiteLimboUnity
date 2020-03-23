@@ -128,11 +128,6 @@ public class ControleDialogo : MonoBehaviour
 
             //atores[1].GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("NEUTRO-1");
 
-
-
-
-
-
             contador++;
         }
         else

@@ -1,0 +1,4 @@
+﻿NPC1|Socorro...|NEUTRO
+NPC1|Preciso de ajuda...|NEUTRO
+PLAYER|Eu te ajudo! O que você precisa?|FELIZ
+NPC1|Preciso de um remédio, estou muito mal...|NEUTRO
