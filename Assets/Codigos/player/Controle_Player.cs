@@ -4,39 +4,30 @@ using UnityEngine;
 
 public class Controle_Player : MonoBehaviour
 {
-
-    private Rigidbody rigidBody;
-    private BoxCollider boxCollider;
-    public LayerMask groundLayers;
-
+    // -- MOVIMENTAÇÃO -- 
     private float velocidade = 50;
-    public GameObject botoesInventario; // Vetor que guarda os botões do inventario
-    public bool mostrarBtn = true; // Boolean que indica se deve mostrar ou ocultar os botões
-    public bool visivelBtn = false; // Indica se os botões estão ou não visiveis
-
     public bool correndo = false;
+    public bool pdAndar = true;
+    // ------------------
 
-    private void Awake()
-    {
-        botoesInventario = GameObject.FindGameObjectWithTag("Btn"); // Mandando game objects com a tag btn para o vetor
-    }
+    // -- INVENTARIO ----
+    public GameObject controleInvt;
+    protected bool exibeUIinvt = false;
+    // ------------------
 
     public void Start()
     {
-        rigidBody = GetComponent<Rigidbody>();
-        boxCollider = GetComponent<BoxCollider>();
-
-        botoesInventario.SetActive(false); // Desativando o inventario por aqui pq pelo inspector impede do objeto ser carregado
+        
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         Andar();
-        //Pular();
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            UsarInventario();
-        }
+    }
+
+    void Update()
+    {
+        UsarInventario();
     }
 
     void Andar()
@@ -62,35 +53,26 @@ public class Controle_Player : MonoBehaviour
         transform.Translate(x, 0, z);
     }
 
-    void Pular()
+
+    void UsarInventario()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        /*
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            //float y = velocidade * Time.deltaTime * 5;
-            //transform.Translate(0, y, 0);
-
-            rigidBody.AddForce(Vector3.up * 7, ForceMode.Impulse);
-
+            controleInvt.GetComponent<ControleInvt>().UsarItem(1);
         }
-    }
-
-    private bool EstaNoChao()
-    {
-        return false;
-    }
-
-    public void UsarInventario()
-    {
-        // Ativando/desativando a visibilidade dos botões de inventario
-        botoesInventario.SetActive(mostrarBtn);
-        mostrarBtn = !mostrarBtn;
-        if (mostrarBtn == true)
-        {
-            visivelBtn = false;
+        else if (Input.GetKeyDown(KeyCode.T)){
+            controleInvt.GetComponent<ControleInvt>().UsarItem(2);
         }
-        else
+        else if (Input.GetKeyDown(KeyCode.Y))
         {
-            visivelBtn = true;
+            controleInvt.GetComponent<ControleInvt>().UsarItem(3);
+        }*/
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            controleInvt.GetComponent<ControleInvt>().ExibirPainel(!exibeUIinvt);
+            exibeUIinvt = !exibeUIinvt;
         }
     }
 }

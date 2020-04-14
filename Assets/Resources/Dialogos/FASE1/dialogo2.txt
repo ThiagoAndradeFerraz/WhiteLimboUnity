@@ -1,0 +1,2 @@
+﻿PLAYER|Eu realmente preciso sair daqui! Me deixa sair por favor!|NEUTRO
+NPC1|Por favor entenda, não posso! É muito perigoso!|NEUTRO

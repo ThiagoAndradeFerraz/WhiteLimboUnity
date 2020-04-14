@@ -8,6 +8,10 @@ TagManager:
   - Btn
   - btn_dialogo
   - controle_dialogo
+  - txt_alertas
+  - painel_dialogo
+  - txt_nome_dialogo
+  - txt_fala_dialogo
   layers:
   - Default
   - TransparentFX

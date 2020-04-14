@@ -1,0 +1,3 @@
+﻿NPC1|Você não pode sair, é muito perigoso!|NEUTRO
+PLAYER|Mas eu preciso!|NEUTRO
+NPC1|Desculpa, mas não vai rolar.|NEUTRO
